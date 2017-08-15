@@ -1,0 +1,23 @@
+from django.contrib import admin
+
+# Register your models here.
+from .forms import ParkingSpotForm
+from .models import parkingSpots
+
+
+class ParkingSpotsAdmin(admin.ModelAdmin):
+    list_display = ['__unicode__',
+                    'name',
+                    'address1',
+                    'address2',
+                    'city',
+                    'pin',
+                    'price',
+                    'active',
+                    ]
+    form = ParkingSpotForm
+
+    class Meta:
+        model = parkingSpots
+
+admin.site.register(parkingSpots, ParkingSpotsAdmin)

@@ -1,0 +1,10 @@
+from django.conf.urls import url
+from . import views
+# from jsonrpc.backend.django import api
+
+urlpatterns = [
+    url(r'^$', views.home, name='home'),
+    url(r'^add_spots/$', views.parking_spots, name='add_spots'),
+    url(r'^(?P<id>\d+)/$', views.view_spot, name='view_spot'),
+    url(r'^list_spots/$', views.viewParkingSpots, name='list_spots'),
+]

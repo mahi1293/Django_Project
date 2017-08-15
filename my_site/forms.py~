@@ -1,0 +1,56 @@
+from django import forms
+
+from .models import parkingSpots
+from material import *
+
+
+class ParkingSpotForm(LayoutMixin, forms.ModelForm):
+    class Meta:
+        model = parkingSpots
+        layout = Layout(
+                    Fieldset(
+                     Row('name', 'parking_no'),
+                     Row('address1', 'address2'),
+                     Row('city', 'pin', 'price'),
+                     Row(Column('status',
+                                'spot_size',
+                                span_columns=4),
+                         'geo_x', 'geo_y'),
+                     Row('available_till', 'notes', 'watchman_no')))
+        fields = [
+                  'name',
+                  'parking_no',
+                  'address1',
+                  'address2',
+                  'city',
+                  'pin',
+                  'price',
+                  'position',
+                  # 'geo_x',
+                  # 'geo_y',
+                  # 'active',
+                  'spot_size',
+                  'status',
+                  'available_till',
+                  'notes',
+                  'watchman_no',
+                  # 'state',
+                  'images',
+                  ]
+
+    def clean_geo_x(self):
+        print self.cleaned_data
+        position = self.cleaned_data.get('position')
+        print position
+        geo_x = position[0]
+        return geo_x
+
+    def clean_geo_y(self):
+        position = self.cleaned_data.get('position')
+        geo_y = position[1]
+        return geo_y
+
+#     def clean_fname(self):
+#         fname = self.cleaned_data.get('fname')
+#         # validation code
+#         return fname

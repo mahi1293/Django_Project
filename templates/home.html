@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+<style>
+{% block style %}
+.lead {
+	text-align: center;
+}
+{% endblock %}
+</style>
+	{% block content %}
+	<div class='jumbotron'>
+		<div class="row">
+			<div class='col-sm-6'>
+				<h1 style="color:#4169e1;font-family:Georgia">Welcome to Our Website!!</h1>
+				<p style="color:green;font-family:Georgia">Buy and Sell anything you want.</p>
+				
+			<!--	<p>
+					<a class="btn btn-lg btn-primary" href="" role="button">Join Us &raquo;</a>
+				</p>  -->
+				<p>
+				<span class='fa-stack fa-lg fa-5x'>
+					<i class="fa fa-circle-o-notch fa-stack-2x fa-spin"></i>
+					<i class="fa fa-car fa-stack-1x"></i>
+				</span>
+				</p>
+				
+			</div>
+			 <div class='col-sm-6'>
+				<h1 style="text-shadow: 2px 2px red;color:dark blue;font-family:Georgia" class="text-center bg-info">SELL & BUY</h1>
+				
+			</div> 
+		</div>
+	</div>
+	{% endblock %}
+	</body>
+</html>
